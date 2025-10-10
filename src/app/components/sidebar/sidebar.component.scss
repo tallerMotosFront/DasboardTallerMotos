@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px 12px;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+mat-list-item {
+  color: #e6eef8;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 6px 0;
+}
+
+mat-list-item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.label {
+  margin-left: 12px;
+}
+
+.new-task {
+  margin-top: auto;
+  padding: 16px 0;
+}

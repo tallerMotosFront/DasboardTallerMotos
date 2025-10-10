@@ -1,0 +1,11 @@
+<div class="dashboard-container">
+  <h2>Panel de Tareas del Taller</h2>
+  <div style="display: block; width: 600px; margin: 0 auto;">
+    <canvas baseChart [data]="barChartData" [options]="barChartOptions" chartType="bar"></canvas>
+  </div>
+
+  <app-tasks-table></app-tasks-table>
+  <app-tasks-chart></app-tasks-chart>
+  <app-task-form></app-task-form>
+
+</div>

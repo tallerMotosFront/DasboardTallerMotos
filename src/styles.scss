@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --bg: #f7fafc;
+  --surface: #ffffff;
+  --primary: #1e3a8a; // azul oscuro
+  --accent: #ef4444;  // rojo opcional
+  --muted: #6b7280;
+  --success: #10b981;
+  --warning: #f59e0b;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: var(--bg); color: #0f172a; }
+
+.mat-toolbar { background: var(--surface) !important; }
+.mat-card { border-radius: 12px; }
+
+/* Sidebar override: */
+.mat-sidenav { background: #111827; color: #f3f4f6; }
+
+/* Buttons */
+button[mat-flat-button] { border-radius: 10px; }
+
+/* Table header */
+th.mat-header-cell { background: #f3f4f6; font-weight:600; }
+
+/* Small responsive tweaks */
+@media (max-width: 960px) {
+  .search-field { width: 320px !important; }
+  .kpi-row { flex-direction: column; }
+  .content-grid { grid-template-columns: 1fr; }
+}
+

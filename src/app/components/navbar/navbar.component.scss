@@ -1,0 +1,25 @@
+.topbar {
+  background: white;
+  box-shadow: 0 1px 6px rgba(16,24,40,0.06);
+  padding: 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-field {
+  width: 520px;
+}
+
+.actions {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.avatar {
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  margin-right:8px;
+}

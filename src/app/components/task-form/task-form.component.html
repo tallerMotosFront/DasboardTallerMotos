@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>{{ editMode ? 'Editar tarea' : 'Nueva tarea' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()" class="task-form">
+  <mat-dialog-content>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cliente</mat-label>
+      <input matInput placeholder="Nombre del cliente" formControlName="cliente">
+      <mat-error *ngIf="form.get('cliente')?.hasError('required')">
+        El nombre del cliente es obligatorio
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Placa</mat-label>
+      <input matInput placeholder="ABC123" formControlName="placa">
+      <mat-error *ngIf="form.get('placa')?.hasError('required')">
+        La placa es obligatoria
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="estado">
+        <mat-option *ngFor="let e of estados" [value]="e">
+          {{ e }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('estado')?.hasError('required')">
+        El estado es obligatorio
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mecánico</mat-label>
+      <input matInput placeholder="Nombre del mecánico" formControlName="mecanico">
+      <mat-error *ngIf="form.get('mecanico')?.hasError('required')">
+        El nombre del mecánico es obligatorio
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Fecha límite</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="fechaLimite">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="form.get('fechaLimite')?.hasError('required')">
+        La fecha límite es obligatoria
+      </mat-error>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="close()">Cancelar</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">
+      {{ editMode ? 'Actualizar' : 'Guardar' }}
+    </button>
+  </mat-dialog-actions>
+</form>
+
+

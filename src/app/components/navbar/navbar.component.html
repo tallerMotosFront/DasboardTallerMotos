@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="navbar">
+  <!-- Botón para abrir/cerrar el sidebar -->
+  <button mat-icon-button (click)="toggleSidebar.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Logo / título del sistema -->
+  <span class="navbar-title">Gestor de Taller</span>
+
+  <span class="spacer"></span>
+
+  <!-- Iconos de acción -->
+  <button mat-icon-button matTooltip="Notificaciones">
+    <mat-icon>notifications</mat-icon>
+  </button>
+
+  <button mat-icon-button matTooltip="Perfil">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+

@@ -1,0 +1,15 @@
+.table-header {
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:12px;
+}
+
+.filter { width: 300px; }
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell {
+  background: #f3f4f6;
+}
