@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
-
 // Angular Material
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -22,11 +21,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // Charts
 import { NgChartsModule } from 'ng2-charts';
 
+// Components
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -34,6 +38,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TasksTableComponent } from './components/task-table/task-table.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TasksChartComponent } from './components/tasks-chart/tasks-chart.component';
+import { HomeComponent } from './components/home/home.component';
+import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
+import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from "@angular/router";
 
 @NgModule({
@@ -44,7 +51,10 @@ import { RouterModule } from "@angular/router";
     DashboardComponent,
     TasksTableComponent,
     TaskFormComponent,
-    TasksChartComponent
+    TasksChartComponent,
+    HomeComponent,
+    AppointmentFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -68,9 +78,14 @@ import { RouterModule } from "@angular/router";
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
     NgChartsModule,
     RouterModule
-],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,22 +1,22 @@
-<mat-sidenav-container class="main-container">
-  <!-- Sidebar lateral -->
-  <mat-sidenav mode="side" opened class="sidenav">
-    <!-- Aquí se cargan los enlaces de navegación -->
-    <app-sidebar></app-sidebar>
-  </mat-sidenav>
+<div class="app-wrapper">
+  <!-- Mostrar layout completo solo si NO estamos en home o login -->
+  <ng-container *ngIf="showDashboardLayout">
+    <mat-sidenav-container class="main-container">
+      <mat-sidenav mode="side" opened class="sidenav">
+        <app-sidebar></app-sidebar>
+      </mat-sidenav>
 
-  <!-- Contenido principal -->
-  <mat-sidenav-content>
-    <!-- Barra superior -->
-    <app-navbar></app-navbar>
+      <mat-sidenav-content>
+        <app-navbar></app-navbar>
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </ng-container>
 
-    <!-- Contenedor del contenido dinámico -->
-    <div class="content">
-      <!-- Aquí Angular cargará el componente según la ruta -->
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-
-
+  <!-- Mostrar solo contenido para home y login -->
+  <ng-container *ngIf="!showDashboardLayout">
+    <router-outlet></router-outlet>
+  </ng-container>
+</div>

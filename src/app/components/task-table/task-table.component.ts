@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
 import { TasksService } from '../../services/tasks.service';
 import { Task } from '../../models/task.model';
-
+import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({
   selector: 'app-tasks-table',
@@ -18,7 +19,10 @@ export class TasksTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private tasksService: TasksService) {}
+  constructor(
+    private tasksService: TasksService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.loadTasks();
@@ -33,9 +37,23 @@ export class TasksTableComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
+  editTask(task: Task): void {
+    const dialogRef = this.dialog.open(TaskFormComponent, {
+      width: '500px',
+      data: { task }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadTasks();
+      }
+    });
+  }
+
   deleteTask(id: number): void {
-    this.tasksService.deleteTask(id);
-    this.loadTasks();
+    if (confirm('¿Estás seguro de eliminar esta tarea?')) {
+      this.tasksService.deleteTask(id);
+      this.loadTasks();
+    }
   }
 }
-

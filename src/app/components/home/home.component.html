@@ -1,0 +1,432 @@
+<!-- Header/Navbar -->
+<header class="home-header">
+  <nav class="navbar-home">
+    <div class="nav-container">
+      <div class="logo">
+        <mat-icon class="logo-icon">two_wheeler</mat-icon>
+        <span class="logo-text">MotoExpert</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button mat-stroked-button (click)="openAppointmentDialog()">
+          <mat-icon>event</mat-icon>
+          Agendar Cita
+        </button>
+        <button mat-button routerLink="/login" class="employee-btn">
+          <mat-icon>admin_panel_settings</mat-icon>
+          ¿Eres empleado?
+        </button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button mat-icon-button class="mobile-menu" (click)="toggleMobileMenu()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-nav" [class.active]="mobileMenuOpen">
+    <ul>
+      <li><a href="#inicio" (click)="closeMobileMenu()">Inicio</a></li>
+      <li><a href="#servicios" (click)="closeMobileMenu()">Servicios</a></li>
+      <li><a href="#nosotros" (click)="closeMobileMenu()">Nosotros</a></li>
+      <li><a href="#noticias" (click)="closeMobileMenu()">Noticias</a></li>
+      <li><a href="#contacto" (click)="closeMobileMenu()">Contacto</a></li>
+      <li>
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="openAppointmentDialog()"
+        >
+          Agendar Cita
+        </button>
+      </li>
+      <li><button mat-button routerLink="/login">¿Eres empleado?</button></li>
+    </ul>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title animate-fade-in">
+      Expertos en Mantenimiento de Motos
+    </h1>
+    <p class="hero-subtitle animate-fade-in-delay">
+      Más de 15 años de experiencia cuidando tu pasión sobre dos ruedas
+    </p>
+    <div class="hero-buttons animate-fade-in-delay-2">
+      <button
+        mat-raised-button
+        color="primary"
+        class="btn-large"
+        (click)="openAppointmentDialog()"
+      >
+        Agendar una Cita
+      </button>
+      <button
+        mat-stroked-button
+        class="btn-large btn-outline"
+        (click)="scrollTo('servicios')"
+      >
+        Ver Servicios
+      </button>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="hero-stats animate-slide-up">
+    <div class="stat-card">
+      <mat-icon>check_circle</mat-icon>
+      <div class="stat-number">5000+</div>
+      <div class="stat-label">Motos Reparadas</div>
+    </div>
+    <div class="stat-card">
+      <mat-icon>star</mat-icon>
+      <div class="stat-number">4.9</div>
+      <div class="stat-label">Calificación</div>
+    </div>
+    <div class="stat-card">
+      <mat-icon>schedule</mat-icon>
+      <div class="stat-number">24h</div>
+      <div class="stat-label">Servicio Urgente</div>
+    </div>
+    <div class="stat-card">
+      <mat-icon>engineering</mat-icon>
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Años Experiencia</div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="servicios" class="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="section-subtitle">Soluciones completas para tu motocicleta</p>
+    </div>
+
+    <div class="services-grid">
+      <mat-card class="service-card" *ngFor="let service of services">
+        <mat-icon class="service-icon" [style.color]="service.color">{{
+          service.icon
+        }}</mat-icon>
+        <mat-card-title>{{ service.title }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ service.description }}</p>
+          <div class="service-price">
+            Desde ${{ service.price | number : "1.0-0" }}
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button color="primary" (click)="openAppointmentDialog()">
+            Solicitar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="nosotros" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?w=800&q=80"
+          alt="Taller de motos"
+        />
+        <div class="about-badge">
+          <mat-icon>verified</mat-icon>
+          <span>Certificados</span>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+        <p class="about-text">
+          En MotoExpert, somos más que un taller mecánico. Somos apasionados por
+          las motocicletas y nos dedicamos a brindar el mejor servicio con
+          tecnología de punta y mecánicos certificados.
+        </p>
+
+        <div class="features-list">
+          <div class="feature-item" *ngFor="let feature of features">
+            <mat-icon color="primary">{{ feature.icon }}</mat-icon>
+            <div>
+              <h4>{{ feature.title }}</h4>
+              <p>{{ feature.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="scrollTo('contacto')"
+        >
+          Contáctanos
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- News Carousel Section -->
+<section id="noticias" class="news">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Últimas Noticias</h2>
+      <p class="section-subtitle">
+        Mantente al día con las novedades del mundo motor
+      </p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button
+        mat-icon-button
+        class="carousel-btn prev"
+        (click)="previousNews()"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+
+      <div class="news-carousel">
+        <mat-card
+          class="news-card"
+          *ngFor="let news of getVisibleNews()"
+          [@slideAnimation]
+        >
+          <img mat-card-image [src]="news.image" [alt]="news.title" />
+          <mat-card-content>
+            <div class="news-date">
+              <mat-icon>calendar_today</mat-icon>
+              {{ news.date }}
+            </div>
+            <mat-card-title>{{ news.title }}</mat-card-title>
+            <p>{{ news.excerpt }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary">Leer más</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <button mat-icon-button class="carousel-btn next" (click)="nextNews()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+
+    <!-- Carousel indicators -->
+    <div class="carousel-indicators">
+      <span
+        *ngFor="let news of newsArticles; let i = index"
+        class="indicator"
+        [class.active]="i === currentNewsIndex"
+        (click)="goToNews(i)"
+      >
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Galería de Trabajos</h2>
+      <p class="section-subtitle">Algunos de nuestros proyectos recientes</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" *ngFor="let item of galleryItems">
+        <img [src]="item.url" [alt]="item.title" />
+        <div class="gallery-overlay">
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.category }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+      <p class="section-subtitle">Testimonios reales de clientes satisfechos</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <mat-card
+        class="testimonial-card"
+        *ngFor="let testimonial of testimonials"
+      >
+        <div class="testimonial-header">
+          <img
+            [src]="testimonial.avatar"
+            [alt]="testimonial.name"
+            class="avatar"
+          />
+          <div>
+            <h4>{{ testimonial.name }}</h4>
+            <div class="rating">
+              <mat-icon *ngFor="let star of [1, 2, 3, 4, 5]">star</mat-icon>
+            </div>
+          </div>
+        </div>
+        <mat-card-content>
+          <p class="testimonial-text">"{{ testimonial.text }}"</p>
+          <div class="testimonial-bike">
+            <mat-icon>two_wheeler</mat-icon>
+            {{ testimonial.bike }}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contacto" class="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2 class="section-title">Visítanos</h2>
+        <p>
+          Estamos ubicados en el corazón de la ciudad, listos para atenderte.
+        </p>
+
+        <div class="contact-item">
+          <mat-icon>location_on</mat-icon>
+          <div>
+            <h4>Dirección</h4>
+            <p>Av. 68 #68b-10, Bogotá, Colombia</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <mat-icon>phone</mat-icon>
+          <div>
+            <h4>Teléfonos</h4>
+            <p>+57 (1) 234-5678</p>
+            <p>+57 (320) 456-7890</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <mat-icon>email</mat-icon>
+          <div>
+            <h4>Email</h4>
+            <p>info@motoexpert.com</p>
+            <p>servicio@motoexpert.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <mat-icon>schedule</mat-icon>
+          <div>
+            <h4>Horario</h4>
+            <p>Lunes - Viernes: 8:00 AM - 6:00 PM</p>
+            <p>Sábados: 8:00 AM - 2:00 PM</p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <button mat-icon-button color="primary">
+            <mat-icon>facebook</mat-icon>
+          </button>
+          <button mat-icon-button color="primary">
+            <mat-icon>camera_alt</mat-icon>
+          </button>
+          <button mat-icon-button color="primary">
+            <mat-icon>chat</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d770.2377389387098!2d-74.08786947680058!3d4.675804233186081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b002f1b6727%3A0x1824e35238b43072!2sCampus%20UCompensar%20Av.%2068!5e0!3m2!1ses-419!2sco!4v1761282335823!5m2!1ses-419!2sco"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">
+          <mat-icon>two_wheeler</mat-icon>
+          <span>MotoExpert</span>
+        </div>
+        <p>
+          Tu taller de confianza desde 2008. Expertos en mantenimiento y
+          reparación de motocicletas.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#">Mantenimiento</a></li>
+          <li><a href="#">Reparación</a></li>
+          <li><a href="#">Diagnóstico</a></li>
+          <li><a href="#">Repuestos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Suscríbete para recibir ofertas y noticias</p>
+        <div class="newsletter-form">
+          <mat-form-field appearance="outline">
+            <input matInput placeholder="Tu email" type="email" />
+          </mat-form-field>
+          <button mat-raised-button color="primary">Suscribirse</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 MotoExpert. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>

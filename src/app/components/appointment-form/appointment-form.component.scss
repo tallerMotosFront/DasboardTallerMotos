@@ -1,0 +1,545 @@
+.appointment-dialog {
+  max-height: 90vh;
+  
+  .dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem 0;
+    margin-bottom: 0;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+      color: #2196F3;
+      font-size: 1.8rem;
+
+      mat-icon {
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+        color: #2196F3;
+      }
+    }
+
+    .close-btn {
+      margin-top: -8px;
+      
+      mat-icon {
+        color: #666;
+      }
+    }
+  }
+}
+
+mat-dialog-content {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+
+  .dialog-description {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    text-align: center;
+  }
+}
+
+.appointment-form {
+  .form-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.2rem;
+      color: #333;
+      margin: 0 0 1.5rem 0;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #e0e0e0;
+
+      mat-icon {
+        color: #2196F3;
+        font-size: 1.5rem;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // ESTILOS CRÍTICOS PARA VISIBILIDAD DE MATERIAL
+  mat-form-field {
+    width: 100%;
+
+    // Color del label/placeholder
+    ::ng-deep .mat-mdc-form-field-label,
+    ::ng-deep .mat-mdc-floating-label {
+      color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    // Color del input text
+    ::ng-deep .mat-mdc-input-element {
+      color: #333 !important;
+      caret-color: #2196F3 !important;
+    }
+
+    // Color del textarea
+    ::ng-deep textarea.mat-mdc-input-element {
+      color: #333 !important;
+    }
+
+    // Color del placeholder
+    ::ng-deep .mat-mdc-input-element::placeholder {
+      color: rgba(0, 0, 0, 0.42) !important;
+    }
+
+    // Color del select
+    ::ng-deep .mat-mdc-select {
+      color: #333 !important;
+
+      .mat-mdc-select-value {
+        color: #333 !important;
+      }
+
+      .mat-mdc-select-placeholder {
+        color: rgba(0, 0, 0, 0.42) !important;
+      }
+
+      .mat-mdc-select-arrow {
+        color: rgba(0, 0, 0, 0.54) !important;
+      }
+    }
+
+    // Color del datepicker
+    ::ng-deep .mat-datepicker-toggle {
+      color: rgba(0, 0, 0, 0.54) !important;
+    }
+
+    // Borde del outline
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      .mat-mdc-form-field-flex .mat-mdc-notched-outline {
+        .mat-mdc-notched-outline-leading,
+        .mat-mdc-notched-outline-notch,
+        .mat-mdc-notched-outline-trailing {
+          border-color: rgba(0, 0, 0, 0.38) !important;
+        }
+      }
+    }
+
+    // Borde en hover
+    ::ng-deep .mat-mdc-text-field-wrapper:hover {
+      .mat-mdc-form-field-flex .mat-mdc-notched-outline {
+        .mat-mdc-notched-outline-leading,
+        .mat-mdc-notched-outline-notch,
+        .mat-mdc-notched-outline-trailing {
+          border-color: rgba(0, 0, 0, 0.87) !important;
+        }
+      }
+    }
+
+    // Borde cuando está focused
+    ::ng-deep .mat-focused {
+      .mat-mdc-notched-outline {
+        .mat-mdc-notched-outline-leading,
+        .mat-mdc-notched-outline-notch,
+        .mat-mdc-notched-outline-trailing {
+          border-color: #2196F3 !important;
+          border-width: 2px !important;
+        }
+      }
+
+      .mat-mdc-floating-label {
+        color: #2196F3 !important;
+      }
+    }
+
+    // Color de iconos prefix
+    mat-icon[matPrefix] {
+      margin-right: 0.5rem;
+      color: #666 !important;
+    }
+
+    // Color de iconos suffix
+    mat-icon[matSuffix] {
+      color: #666 !important;
+    }
+
+    span[matSuffix] {
+      color: #666 !important;
+    }
+
+    // Color del hint
+    ::ng-deep .mat-mdc-form-field-hint {
+      color: rgba(0, 0, 0, 0.6) !important;
+    }
+
+    // Color del error
+    ::ng-deep .mat-mdc-form-field-error {
+      color: #f44336 !important;
+    }
+  }
+
+  .urgency-selector {
+    margin-top: 1.5rem;
+
+    .urgency-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 1rem;
+
+      mat-icon {
+        color: #FF9800;
+      }
+    }
+
+    .urgency-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      mat-radio-button {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background: white;
+        border-radius: 8px;
+        transition: all 0.3s;
+
+        // Asegurar visibilidad del radio button
+        ::ng-deep .mdc-radio {
+          .mdc-radio__background {
+            border-color: rgba(0, 0, 0, 0.54) !important;
+
+            .mdc-radio__outer-circle {
+              border-color: rgba(0, 0, 0, 0.54) !important;
+            }
+
+            .mdc-radio__inner-circle {
+              border-color: #2196F3 !important;
+            }
+          }
+        }
+
+        ::ng-deep .mdc-radio--checked {
+          .mdc-radio__background {
+            .mdc-radio__outer-circle {
+              border-color: #2196F3 !important;
+            }
+          }
+        }
+
+        // Color del label
+        ::ng-deep .mdc-label {
+          color: #333 !important;
+        }
+
+        &:hover {
+          background: #f5f5f5;
+          transform: translateX(5px);
+        }
+
+        ::ng-deep .mat-radio-label-content {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+          padding-left: 0.5rem;
+
+          small {
+            color: #666;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+
+  .urgency-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    &.baja {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    &.media {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    &.alta {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  }
+
+  .checkbox-option {
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+
+    // Visibilidad del checkbox
+    ::ng-deep .mdc-checkbox {
+      .mdc-checkbox__background {
+        border-color: rgba(0, 0, 0, 0.54) !important;
+      }
+
+      .mdc-checkbox__checkmark {
+        color: white !important;
+      }
+    }
+
+    ::ng-deep .mdc-checkbox--checked {
+      .mdc-checkbox__background {
+        background-color: #2196F3 !important;
+        border-color: #2196F3 !important;
+      }
+    }
+
+    ::ng-deep .mat-checkbox-layout {
+      width: 100%;
+    }
+
+    // Color del label del checkbox
+    ::ng-deep .mdc-label {
+      color: #333 !important;
+    }
+
+    .checkbox-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-left: 0.5rem;
+
+      strong {
+        color: #333;
+      }
+
+      small {
+        color: #666;
+        font-size: 0.85rem;
+      }
+
+      .link {
+        color: #2196F3;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.summary-card {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+
+  mat-card-header {
+    margin-bottom: 1rem;
+
+    mat-icon {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 2rem;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    mat-card-title {
+      color: white;
+      font-size: 1.3rem;
+    }
+  }
+
+  mat-card-content {
+    .summary-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      strong {
+        display: block;
+        margin-bottom: 0.25rem;
+        opacity: 0.9;
+        font-size: 0.9rem;
+        color: white;
+      }
+    }
+  }
+}
+
+mat-dialog-actions {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e0e0e0;
+
+  button {
+    min-width: 120px;
+
+    // Color del texto de los botones
+    &[mat-button] {
+      color: #666 !important;
+    }
+
+    &[mat-raised-button] {
+      background-color: #2196F3 !important;
+      color: white !important;
+
+      &:disabled {
+        background-color: rgba(0, 0, 0, 0.12) !important;
+        color: rgba(0, 0, 0, 0.26) !important;
+      }
+    }
+
+    mat-icon {
+      margin-right: 0.5rem;
+      color: inherit;
+    }
+
+    mat-spinner {
+      margin-right: 0.5rem;
+
+      ::ng-deep circle {
+        stroke: white !important;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .appointment-form {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .urgency-selector .urgency-options {
+      mat-radio-button {
+        padding: 0.75rem;
+      }
+    }
+  }
+}
+
+// Scrollbar personalizado
+mat-dialog-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+mat-dialog-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+mat-dialog-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+
+  &:hover {
+    background: #555;
+  }
+}
+
+// ESTILOS ADICIONALES PARA EL SELECT PANEL (el dropdown que se abre)
+::ng-deep .mat-mdc-select-panel {
+  background: white !important;
+
+  .mat-mdc-option {
+    color: #333 !important;
+
+    &:hover {
+      background: #f5f5f5 !important;
+    }
+
+    &.mat-mdc-option-active {
+      background: #e3f2fd !important;
+      color: #2196F3 !important;
+    }
+
+    .mdc-list-item__primary-text {
+      color: inherit !important;
+    }
+  }
+}
+
+// ESTILOS PARA EL DATEPICKER
+::ng-deep .mat-datepicker-content {
+  background: white !important;
+  color: #333 !important;
+
+  .mat-calendar {
+    background: white !important;
+
+    .mat-calendar-header {
+      color: #333 !important;
+    }
+
+    .mat-calendar-body-label {
+      color: rgba(0, 0, 0, 0.54) !important;
+    }
+
+    .mat-calendar-body-cell-content {
+      color: #333 !important;
+      border-color: transparent !important;
+    }
+
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover {
+      .mat-calendar-body-cell-content {
+        background: #e3f2fd !important;
+      }
+    }
+
+    .mat-calendar-body-selected {
+      background-color: #2196F3 !important;
+      color: white !important;
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: #2196F3 !important;
+    }
+  }
+}

@@ -13,3 +13,48 @@ table {
 th.mat-header-cell {
   background: #f3f4f6;
 }
+
+.table-container {
+  margin-top: 16px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.filter { 
+  width: 300px; 
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-header-cell {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-pendiente {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-en-progreso {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badge-finalizada {
+  background-color: #d1fae5;
+  color: #065f46;
+}
