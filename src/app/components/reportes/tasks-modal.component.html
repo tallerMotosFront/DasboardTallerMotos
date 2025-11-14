@@ -1,0 +1,63 @@
+<h2 mat-dialog-title>Detalle de Tareas</h2>
+<mat-dialog-content>
+  <div class="tasks-list">
+    <mat-card *ngFor="let task of tasks" class="task-card">
+      <mat-card-header>
+        <mat-card-title>{{ task.cliente }}</mat-card-title>
+        <mat-card-subtitle>
+          <span [class]="'badge badge-' + getEstadoClass(task.estado)">
+            {{ task.estado }}
+          </span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <div class="task-info">
+          <div class="info-row">
+            <mat-icon>directions_bike</mat-icon>
+            <div class="info-group">
+              <span class="label">Modelo:</span>
+              <span class="value">{{ task.modelo || 'No especificado' }}</span>
+            </div>
+          </div>
+          
+          <div class="info-row">
+            <mat-icon>confirmation_number</mat-icon>
+            <div class="info-group">
+              <span class="label">Placa:</span>
+              <span class="value">{{ task.placa }}</span>
+            </div>
+          </div>
+          
+          <div class="info-row">
+            <mat-icon>build</mat-icon>
+            <div class="info-group">
+              <span class="label">Detalle del Servicio:</span>
+              <span class="value">{{ task.detalleServicio || 'No especificado' }}</span>
+            </div>
+          </div>
+          
+          <div class="info-row">
+            <mat-icon>person</mat-icon>
+            <div class="info-group">
+              <span class="label">Mecánico Asignado:</span>
+              <span class="value">{{ task.mecanico }}</span>
+            </div>
+          </div>
+          
+          <div class="info-row">
+            <mat-icon>event</mat-icon>
+            <div class="info-group">
+              <span class="label">Fecha Límite:</span>
+              <span class="value">{{ task.fechaLimite | date:'dd/MM/yyyy' }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cerrar</button>
+</mat-dialog-actions>
+

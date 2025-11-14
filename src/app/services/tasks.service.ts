@@ -10,6 +10,8 @@ export class TasksService {
       id: 1,
       cliente: 'Juan Pérez',
       placa: 'ABC123',
+      modelo: 'Yamaha R3',
+      detalleServicio: 'Cambio de aceite y filtro, revisión general',
       mecanico: 'Carlos Gómez',
       estado: 'Pendiente',
       fechaLimite: '2025-10-15'
@@ -18,9 +20,41 @@ export class TasksService {
       id: 2,
       cliente: 'María López',
       placa: 'XYZ987',
+      modelo: 'Honda CBR 600',
+      detalleServicio: 'Reparación de frenos delanteros y traseros',
       mecanico: 'Ana Torres',
       estado: 'En progreso',
       fechaLimite: '2025-10-20'
+    },
+    {
+      id: 3,
+      cliente: 'Carlos Rodríguez',
+      placa: 'DEF456',
+      modelo: 'Kawasaki Ninja 650',
+      detalleServicio: 'Mantenimiento completo, cambio de neumáticos',
+      mecanico: 'Luis Martínez',
+      estado: 'Finalizada',
+      fechaLimite: '2025-10-10'
+    },
+    {
+      id: 4,
+      cliente: 'Ana García',
+      placa: 'GHI789',
+      modelo: 'Suzuki GSX-R 750',
+      detalleServicio: 'Reparación de sistema eléctrico',
+      mecanico: 'Sofía Ramírez',
+      estado: 'Pendiente',
+      fechaLimite: '2025-10-25'
+    },
+    {
+      id: 5,
+      cliente: 'Roberto Fernández',
+      placa: 'JKL012',
+      modelo: 'Ducati Monster 696',
+      detalleServicio: 'Alineación y balanceo, revisión de suspensión',
+      mecanico: 'Roberto Fernández',
+      estado: 'En progreso',
+      fechaLimite: '2025-10-18'
     }
   ];
 

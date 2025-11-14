@@ -14,19 +14,31 @@
   gap:8px;
 }
 
-mat-list-item {
+a[mat-list-item] {
   color: #e6eef8;
   cursor: pointer;
   border-radius: 8px;
   margin: 6px 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  
+  mat-icon {
+    margin-right: 12px;
+  }
+  
+  .label {
+    margin-left: 0;
+  }
 }
 
-mat-list-item:hover {
+a[mat-list-item]:hover {
   background: rgba(255,255,255,0.06);
 }
 
-.label {
-  margin-left: 12px;
+a[mat-list-item].active-link {
+  background: rgba(255,255,255,0.1);
+  font-weight: 600;
 }
 
 .new-task {

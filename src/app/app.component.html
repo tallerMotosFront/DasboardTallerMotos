@@ -2,12 +2,12 @@
   <!-- Mostrar layout completo solo si NO estamos en home o login -->
   <ng-container *ngIf="showDashboardLayout">
     <mat-sidenav-container class="main-container">
-      <mat-sidenav mode="side" opened class="sidenav">
-        <app-sidebar></app-sidebar>
+      <mat-sidenav mode="side" class="sidenav" [opened]="sidebarOpened">
+        <app-sidebar (closeSidebar)="toggleSidebar()"></app-sidebar>
       </mat-sidenav>
 
       <mat-sidenav-content>
-        <app-navbar></app-navbar>
+        <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
         <div class="content">
           <router-outlet></router-outlet>
         </div>

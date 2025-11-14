@@ -1,0 +1,124 @@
+.clientes-container {
+  padding: 24px;
+  
+  h2 {
+    margin-bottom: 24px;
+    color: #1f2937;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  .clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .cliente-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    mat-card-header {
+      margin-bottom: 16px;
+      
+      mat-card-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1f2937;
+      }
+    }
+    
+    .cliente-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      
+      .info-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #4b5563;
+        
+        mat-icon {
+          color: #6b7280;
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+        }
+        
+        span {
+          font-size: 14px;
+        }
+      }
+    }
+    
+    mat-card-actions {
+      padding: 16px;
+      margin: 0;
+      
+      button {
+        width: 100%;
+        
+        mat-icon {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  
+  .edit-form-card {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    mat-card-header {
+      margin-bottom: 24px;
+      
+      mat-card-title {
+        font-size: 24px;
+        color: #1f2937;
+      }
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .full-width {
+        width: 100%;
+      }
+      
+      mat-form-field {
+        width: 100%;
+      }
+      
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 16px;
+        
+        button {
+          mat-icon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import { filter } from 'rxjs/operators';
 export class AppComponent {
   title = 'taller-dashboard';
   showDashboardLayout = false;
+  sidebarOpened = true;
 
   constructor(private router: Router) {
     // Detectar cambios de ruta
@@ -23,5 +24,9 @@ export class AppComponent {
       const publicRoutes = ['/', '/login'];
       this.showDashboardLayout = !publicRoutes.includes(urlWithoutFragment);
     });
+  }
+
+  toggleSidebar(): void {
+    this.sidebarOpened = !this.sidebarOpened;
   }
 }

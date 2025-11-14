@@ -42,6 +42,10 @@ import { HomeComponent } from './components/home/home.component';
 import { AppointmentFormComponent } from './components/appointment-form/appointment-form.component';
 import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from "@angular/router";
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
+import { TasksModalComponent } from './components/reportes/tasks-modal.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,11 @@ import { RouterModule } from "@angular/router";
     TasksChartComponent,
     HomeComponent,
     AppointmentFormComponent,
-    LoginComponent
+    LoginComponent,
+    ClientesComponent,
+    MecanicosComponent,
+    ReportesComponent,
+    TasksModalComponent
   ],
   imports: [
     BrowserModule,

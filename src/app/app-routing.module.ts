@@ -5,13 +5,18 @@ import { TasksTableComponent } from './components/task-table/task-table.componen
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
+import { ReportesComponent } from './components/reportes/reportes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'tareas', component: TasksTableComponent },
-  { path: 'reportes', component: DashboardComponent },
+  { path: 'clientes', component: ClientesComponent },
+  { path: 'mecanicos', component: MecanicosComponent },
+  { path: 'reportes', component: ReportesComponent },
   { path: 'formulario', component: TaskFormComponent },
   { path: 'home', component: HomeComponent }
   // puedes seguir agregando más vistas aquí

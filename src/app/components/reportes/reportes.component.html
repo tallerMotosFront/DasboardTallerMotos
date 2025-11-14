@@ -1,0 +1,78 @@
+<div class="reportes-container">
+  <h2>Reportes y Estadísticas</h2>
+  
+  <!-- Tarjetas de estadísticas -->
+  <div class="stats-grid">
+    <mat-card class="stat-card stat-total">
+      <mat-card-content>
+        <div class="stat-content">
+          <mat-icon>assignment</mat-icon>
+          <div class="stat-info">
+            <span class="stat-label">Total de Tareas</span>
+            <span class="stat-value">{{ totalTareas }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card stat-pendiente">
+      <mat-card-content>
+        <div class="stat-content">
+          <mat-icon>schedule</mat-icon>
+          <div class="stat-info">
+            <span class="stat-label">Pendientes</span>
+            <span class="stat-value">{{ tareasPendientes }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card stat-progreso">
+      <mat-card-content>
+        <div class="stat-content">
+          <mat-icon>build</mat-icon>
+          <div class="stat-info">
+            <span class="stat-label">En Progreso</span>
+            <span class="stat-value">{{ tareasEnProgreso }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card stat-finalizada">
+      <mat-card-content>
+        <div class="stat-content">
+          <mat-icon>check_circle</mat-icon>
+          <div class="stat-info">
+            <span class="stat-label">Finalizadas</span>
+            <span class="stat-value">{{ tareasFinalizadas }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Gráfico -->
+  <mat-card class="chart-card">
+    <mat-card-header>
+      <mat-card-title>Distribución de Tareas por Estado</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="chart-container">
+        <canvas baseChart 
+          [data]="barChartData" 
+          [options]="barChartOptions" 
+          chartType="bar">
+        </canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Botón para ver tareas detalladas -->
+  <div class="actions-section">
+    <button mat-raised-button color="primary" (click)="openTasksModal()">
+      <mat-icon>list</mat-icon>
+      Ver Detalle de Tareas
+    </button>
+  </div>
+</div>

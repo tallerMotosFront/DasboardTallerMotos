@@ -3,32 +3,35 @@
 </div>
 
 <mat-nav-list>
-  <mat-list-item>
+  <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
     <mat-icon>dashboard</mat-icon>
     <span class="label">Dashboard</span>
-  </mat-list-item>
+  </a>
 
-  <mat-list-item>
+  <a mat-list-item routerLink="/tareas" routerLinkActive="active-link">
     <mat-icon>assignment</mat-icon>
     <span class="label">Tareas</span>
-  </mat-list-item>
+  </a>
 
-  <mat-list-item>
+  <a mat-list-item routerLink="/clientes" routerLinkActive="active-link">
     <mat-icon>people</mat-icon>
     <span class="label">Clientes</span>
-  </mat-list-item>
+  </a>
 
-  <mat-list-item>
+  <a mat-list-item routerLink="/mecanicos" routerLinkActive="active-link">
     <mat-icon>build</mat-icon>
     <span class="label">Mecánicos</span>
-  </mat-list-item>
+  </a>
 
-  <mat-list-item>
+  <a mat-list-item routerLink="/reportes" routerLinkActive="active-link">
     <mat-icon>bar_chart</mat-icon>
     <span class="label">Reportes</span>
-  </mat-list-item>
+  </a>
 </mat-nav-list>
 
 <div class="new-task">
-  <button mat-raised-button color="primary">+ Nueva tarea</button>
+  <button mat-raised-button color="primary" (click)="cerrarSesion()">
+    <mat-icon>logout</mat-icon>
+    Cerrar sesión
+  </button>
 </div>
